@@ -1,14 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { initializeIcons } from "@fluentui/font-icons-mdl2";
+import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { createBrowserHistory } from "history";
 
-ReactDOM.render(
+initializeIcons();
+
+const history = createBrowserHistory();
+
+const AppContext = ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter history={history}>
+      <App />
+    </BrowserRouter>{" "}
+    <ToastContainer style={{ zIndex: "25000" }} />{" "}
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
